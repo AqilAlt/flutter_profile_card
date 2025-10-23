@@ -37,6 +37,8 @@ class ProfileCard extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
                     /**
+                     * Belajar Container, Pedding, Sizebox
+                     * 
                      * only : hanya memberi satu posisi
                      * symmertic : memberi jarak sumbu x/y
                      * all : memberi semua jarak
