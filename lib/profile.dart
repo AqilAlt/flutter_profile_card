@@ -59,23 +59,49 @@ class ProfileCard extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    /**
+                     * start => kiri
+                     * center => tengah
+                     * end => kanan
+                     * spaceBetween => kepojok dari bagian
+                     * spaceAround => ketengah dari bagian
+                     * spaceEvenly => ketengah hampir mirip spaceAround
+                     */
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.all(9.0),
+                        padding: const EdgeInsets.all(8.0),
                         child: Column(
                           children: <Widget>[
                             Container(
-                              width: MediaQuery.of(context).size.width * 0.5,
                               decoration: BoxDecoration(color: Colors.redAccent, borderRadius: BorderRadius.circular(15,)),
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Text('Address'),
+                                child: Text('Address',),
                               ),
                           )
                           ],
                         ),
                       ),
-                      Column(),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              decoration: BoxDecoration(
+                                color:  Colors.redAccent,
+                                borderRadius: BorderRadius.circular(20)
+                                
+                              ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(9),
+                            child: Text('Tempat Tanggal Lahir'),
+                            
+                          ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ],
