@@ -7,30 +7,63 @@ class AboutMe extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About Me', style: TextStyle(fontWeight: FontWeight.bold),),
+        title: Text(
+          'About Me',style: TextStyle(fontWeight: FontWeight.bold,
+            ),
+          ),
         backgroundColor: Colors.amberAccent,
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
-            children: <Widget>[
-              // Text Name
-              Text('Ucup Guerero', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,),
+            children: <Widget> [
+              // Bisa pakai image.asset(=Nama Image=)
+              CircleAvatar(
+                radius: 50,
+                backgroundImage: NetworkImage('assets/Foto.png')
               ),
-              // Text size
+        
+              /** Text Name */
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  'Aqilalthaf'.toUpperCase(), 
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Barriecito'
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
               SizedBox(
                 height: 10,
               ),
-              Text('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',style: TextStyle(), textAlign: TextAlign.justify,),
-              // Text space
-              SizedBox(
-                height: 10,
+              Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer enim est, fringilla sit amet convallis at, consectetur eu dolor. Morbi accumsan metus id lectus mattis, eget consequat turpis porta. Praesent justo ipsum, fermentum a pharetra eget, tristique in velit. Donec id facilisis tellus. Vestibulum auctor porttitor magna. Nunc feugiat dolor nec justo ultricies, id bibendum justo dignissim. Sed lorem sapien, tristique non lectus commodo, pulvinar ultrices urna. Mauris sit amet tellus tempor, porttitor ligula sit amet, pretium augue. Maecenas rhoncus lectus vel quam sollicitudin, quis consequat neque accumsan. Maecenas vel diam id dui consectetur fermentum. Proin neque magna, dignissim quis velit vitae, convallis euismod lectus. Fusce ac eleifend magna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.',
+              style: TextStyle(
+                fontFamily: 'Barriecito'
               ),
-              // card container android
+              textAlign: TextAlign.justify,
+              ),
+              SizedBox(
+                height: 15,
+              ),
               Container(
                 decoration: BoxDecoration(
-                  
+                  color: Colors.amberAccent,
+                  borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      color: Colors.grey,
+                      width: 2,
+                    ),
+                  boxShadow:[
+                    BoxShadow(
+                      blurRadius: 2,
+                      offset: Offset(2, 3),
+                      color: Colors.grey,
+                    )
+                  ],
                 ),
                 child: Row(
                   children: <Widget>[
@@ -39,7 +72,9 @@ class AboutMe extends StatelessWidget {
                       height: 75,
                       decoration: BoxDecoration(
                         color: Colors.greenAccent,
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(
+                          15,
+                        ),
                       ),
                       child: Icon(
                         Icons.android,
@@ -49,21 +84,61 @@ class AboutMe extends StatelessWidget {
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Text('Android Project\'s', style: TextStyle(fontWeight: FontWeight.bold),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Android Projects',
+                          style: TextStyle(
+                            fontFamily: 'Barriecito',
+                          fontWeight: FontWeight.bold,),
                           ),
-                          Text("10 APK")
+                          Text('10 APK')
                         ],
                       ),
                     ),
                   ],
                 ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10,),
+                child: Text('Schadule'.toUpperCase(),
+                style: TextStyle(fontWeight: FontWeight.bold,
+                fontFamily: 'Barriecito',
+                fontSize: 18,
+                letterSpacing: 2)
+                ),
+              ),
+              // Row Schadule
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Column(
+                    // ==== Belajar
+                    children: <Widget>[
+                      Text('Belajar', style: TextStyle(fontWeight: FontWeight.w700, fontFamily: 'Barriecito'),),
+                      Icon(Icons.timer, size: 30,),
+                      Text('07.30 - 14.30', style: TextStyle(fontWeight: FontWeight.w600),)
+                    ],
+                  ),
+                  // ==== Membaca
+                  Column(
+                    children: <Widget>[
+                      Text('MEMBACA', style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'Barriecito'
+                        ),
+                      ),
+                      Icon(Icons.book, size: 30,),
+                      Text('20.00 - 21.00', style: TextStyle(fontWeight: FontWeight.w600),)
+                    ],
+                  )
+                ],
               )
             ],
           ),
-        ),
+          ),
       ),
-    );
+        );
   }
 }
