@@ -22,8 +22,12 @@ class AboutMe extends StatelessWidget {
    * buat image nya menjadi bentuk lingkaran
    */
 
-  final List imageOnline = const [
-    ''
+  final List<String> imageOnline = const <String>[
+    'https://images.unsplash.com/photo-1704340142770-b52988e5b6eb?ixlib=rb-4.1.0&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2000',
+    'https://images.unsplash.com/photo-1459603677915-a62079ffd002?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2134',
+    'https://plus.unsplash.com/premium_photo-1683134240084-ba074973f75e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1595',
+    'https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170',
+    'https://images.unsplash.com/photo-1506610654-064fbba4780c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170',
   ];
 
   @override
@@ -338,6 +342,44 @@ class AboutMe extends StatelessWidget {
                       ),
                     );
                   }).toList(),
+                ),
+              ),
+              SizedBox(
+                height: 110,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: imageOnline.map((i) {
+                    return Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        
+                        child: CircleAvatar(
+                          backgroundImage: NetworkImage(i),
+                          radius: 50,
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
+              SizedBox(
+                height: 110,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: imageOnline.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          '${imageOnline[index]}'
+                          ),
+                          radius: 50,
+                      ),
+                    );
+                  },
                 ),
               ),
             ],
