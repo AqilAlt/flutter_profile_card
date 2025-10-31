@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/detail_profile.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({super.key});
@@ -15,6 +16,8 @@ class AboutMe extends StatelessWidget {
     '🥊',
     '😭',
   ];
+
+  final title = 'Aqilalthaf';
 
   // ignore: slash_for_doc_comments
   /**
@@ -53,7 +56,7 @@ class AboutMe extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
-                  'Aqilalthaf'.toUpperCase(),
+                  title.toUpperCase(),
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
@@ -179,6 +182,57 @@ class AboutMe extends StatelessWidget {
                   ),
                 ],
               ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DetailProfile(title: title,)),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Detail Profile',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Barriecito',
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DetailProfile(title: title,)),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Detail Profile 2'.toUpperCase(),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Barriecito',
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(color: Colors.black),
@@ -345,7 +399,7 @@ class AboutMe extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 110,
+                height: 114,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: imageOnline.map((i) {
@@ -354,7 +408,7 @@ class AboutMe extends StatelessWidget {
                       child: Container(
                         width: 100,
                         height: 100,
-                        
+
                         child: CircleAvatar(
                           backgroundImage: NetworkImage(i),
                           radius: 50,
@@ -373,10 +427,8 @@ class AboutMe extends StatelessWidget {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: CircleAvatar(
-                        backgroundImage: NetworkImage(
-                          '${imageOnline[index]}'
-                          ),
-                          radius: 50,
+                        backgroundImage: NetworkImage('${imageOnline[index]}'),
+                        radius: 50,
                       ),
                     );
                   },
